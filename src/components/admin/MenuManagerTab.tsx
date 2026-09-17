@@ -126,7 +126,15 @@ export const MenuManagerTab: React.FC = () => {
         : category === "Thali"
           ? ["2 Ghee Phulkas", "Dal Tadka", "Jeera Rice", "Mint Chutney", "Salad"]
           : undefined,
-      allowedAddons: ["addon-la", "addon-je", "addon-da", "addon-ch", "addon-ra", "addon-mi", "addon-pa"],
+      allowedAddons: [
+        "addon-la",
+        "addon-je",
+        "addon-da",
+        "addon-ch",
+        "addon-ra",
+        "addon-mi",
+        "addon-pa",
+      ],
       nutrition: {
         calories: Number.parseInt(calories.replace(/\D/g, ""), 10) || 450,
         protein: protein.trim() || "14g",
@@ -283,7 +291,8 @@ export const MenuManagerTab: React.FC = () => {
               <span>Add New Dish to Kitchen</span>
             </DialogTitle>
             <DialogDescription className="text-xs text-ink/60">
-              Add dish image, pricing, preparation time, and nutritional details. Instantly live on the customer app.
+              Add dish image, pricing, preparation time, and nutritional details. Instantly live on
+              the customer app.
             </DialogDescription>
           </DialogHeader>
 
@@ -313,7 +322,9 @@ export const MenuManagerTab: React.FC = () => {
                   {image ? (
                     <img src={image} alt="Dish preview" className="size-full object-cover" />
                   ) : (
-                    <span className="text-[10px] text-ink/40 text-center px-1 font-mono">No Image</span>
+                    <span className="text-[10px] text-ink/40 text-center px-1 font-mono">
+                      No Image
+                    </span>
                   )}
                 </div>
 
@@ -428,7 +439,7 @@ export const MenuManagerTab: React.FC = () => {
                 </label>
                 <select
                   value={category}
-                  onChange={(e) => setCategory(e.target.value as any)}
+                  onChange={(e) => setCategory(e.target.value as MenuItem["category"])}
                   className="w-full rounded-xl border border-ink/15 bg-cream p-2 text-xs font-medium text-ink"
                 >
                   <option value="Thali">Thali</option>
@@ -515,7 +526,9 @@ export const MenuManagerTab: React.FC = () => {
               </span>
               <div className="grid grid-cols-4 gap-2">
                 <div>
-                  <span className="text-[9px] font-mono text-ink/50 uppercase block">Calories (kcal)</span>
+                  <span className="text-[9px] font-mono text-ink/50 uppercase block">
+                    Calories (kcal)
+                  </span>
                   <Input
                     value={calories}
                     onChange={(e) => setCalories(e.target.value)}
