@@ -14,7 +14,7 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     nitro({
-      preset: process.env.NITRO_PRESET || (process.env.RENDER ? "node-server" : "node-server"),
+      preset: process.env["NITRO_PRESET"] || (process.env["RENDER"] ? "node-server" : "node-server"),
     }),
   ],
 });
