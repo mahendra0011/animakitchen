@@ -9,12 +9,12 @@ services:
     region: singapore
     branch: main
     autoDeploy: true
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --include=dev && npm install @rolldown/binding-linux-x64-gnu@1.2.1 && npm run build
     startCommand: npm start
     healthCheckPath: /
     envVars:
       - key: NODE_VERSION
-        value: 20.18.0
+        value: 22.14.0
       - key: NITRO_PRESET
         value: node-server
       - key: NODE_ENV

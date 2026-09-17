@@ -27,6 +27,17 @@ This repository includes a pre-configured `render.yaml` blueprint.
 3. Connect `mahendra0011/animakitchen` and click **Apply**.
 4. Render will automatically install dependencies, build with `node-server` preset, and launch the service.
 
+### Manual Configuration on Render
+If you created the Web Service manually on Render (instead of Blueprint):
+- **Runtime**: Node
+- **Build Command**: `npm install --include=dev && npm install @rolldown/binding-linux-x64-gnu@1.2.1 && npm run build`
+- **Start Command**: `npm start`
+- **Environment Variables**:
+  - `NODE_VERSION`: `22.14.0` (Vite 8 & Nitro require Node `>=22.12.0`)
+  - `NITRO_PRESET`: `node-server`
+  - `NODE_ENV`: `production`
+  - `PORT`: `10000`
+
 ## Built with
 
 - TanStack Start & React 19
