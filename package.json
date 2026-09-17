@@ -1,12 +1,14 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "animas-kitchen",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "node scripts/ensure-rolldown.cjs",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "postinstall": "node scripts/ensure-rolldown.cjs",
     "start": "node .output/server/index.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
