@@ -1,12 +1,23 @@
+# Render Blueprint Specification
+# Docs: https://render.com/docs/blueprint-spec
+
 services:
   - type: web
     name: animas-kitchen
     runtime: node
     plan: free
+    region: singapore
+    branch: main
+    autoDeploy: true
     buildCommand: npm install && npm run build
     startCommand: npm start
+    healthCheckPath: /
     envVars:
       - key: NODE_VERSION
         value: 20.18.0
       - key: NITRO_PRESET
         value: node-server
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

@@ -16,9 +16,21 @@ npm install
 npm run dev
 ```
 
+## Deployment
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/mahendra0011/animakitchen)
+
+### Deploying via Render Blueprint
+This repository includes a pre-configured `render.yaml` blueprint.
+1. Click the **Deploy to Render** button above or go to [Render Dashboard](https://dashboard.render.com).
+2. Select **New +** → **Blueprint**.
+3. Connect `mahendra0011/animakitchen` and click **Apply**.
+4. Render will automatically install dependencies, build with `node-server` preset, and launch the service.
+
 ## Built with
 
 - TanStack Start & React 19
+- Nitro (Node server)
 - TypeScript
 - Tailwind CSS
 - Lucide Icons & Radix UI
