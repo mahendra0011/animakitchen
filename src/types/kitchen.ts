@@ -48,17 +48,17 @@ export interface MenuItem {
   category: "Thali" | "Paneer & Tandoor" | "Biryani" | "Roti & Rice" | "Desserts" | "Chai & More" | "Combos";
   image: string;
   isVeg: boolean;
-  badge?: string;
-  isTodaySpecial?: boolean;
+  badge?: string | undefined;
+  isTodaySpecial?: boolean | undefined;
   isAvailable: boolean;
   preparationTimeMinutes: number;
   rating: number;
   reviewCount: number;
-  isThali?: boolean;
-  includedItems?: string[];
-  allowedAddons?: string[]; // IDs of ThaliAddon
-  nutrition?: MenuItemNutrition;
-  sizeVariants?: MenuItemSizeVariant[];
+  isThali?: boolean | undefined;
+  includedItems?: string[] | undefined;
+  allowedAddons?: string[] | undefined; // IDs of ThaliAddon
+  nutrition?: MenuItemNutrition | undefined;
+  sizeVariants?: MenuItemSizeVariant[] | undefined;
 }
 
 export interface SelectedAddon {
