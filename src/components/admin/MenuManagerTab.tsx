@@ -70,7 +70,7 @@ export const MenuManagerTab: React.FC = () => {
   const [isVeg, setIsVeg] = useState(true);
   const [isTodaySpecial, setIsTodaySpecial] = useState(false);
   const [includedItems, setIncludedItems] = useState("");
-  const [calories, setCalories] = useState("450 kcal");
+  const [calories, setCalories] = useState("450");
   const [protein, setProtein] = useState("14g");
   const [carbs, setCarbs] = useState("55g");
   const [fat, setFat] = useState("12g");
@@ -128,7 +128,7 @@ export const MenuManagerTab: React.FC = () => {
           : undefined,
       allowedAddons: ["addon-la", "addon-je", "addon-da", "addon-ch", "addon-ra", "addon-mi", "addon-pa"],
       nutrition: {
-        calories: calories.trim() || "450 kcal",
+        calories: Number.parseInt(calories.replace(/\D/g, ""), 10) || 450,
         protein: protein.trim() || "14g",
         carbs: carbs.trim() || "55g",
         fat: fat.trim() || "12g",
@@ -148,6 +148,10 @@ export const MenuManagerTab: React.FC = () => {
     setIsVeg(true);
     setIsTodaySpecial(false);
     setIncludedItems("");
+    setCalories("450");
+    setProtein("14g");
+    setCarbs("55g");
+    setFat("12g");
   };
 
   return (
@@ -511,11 +515,11 @@ export const MenuManagerTab: React.FC = () => {
               </span>
               <div className="grid grid-cols-4 gap-2">
                 <div>
-                  <span className="text-[9px] font-mono text-ink/50 uppercase block">Calories</span>
+                  <span className="text-[9px] font-mono text-ink/50 uppercase block">Calories (kcal)</span>
                   <Input
                     value={calories}
                     onChange={(e) => setCalories(e.target.value)}
-                    placeholder="450 kcal"
+                    placeholder="450"
                     className="h-7 text-[11px] rounded-lg bg-cream font-mono"
                   />
                 </div>
