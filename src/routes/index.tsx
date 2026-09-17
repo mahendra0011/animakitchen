@@ -16,6 +16,9 @@ import {
   ShieldCheck,
   Menu as MenuIcon,
   X as XIcon,
+  Utensils,
+  BookOpen,
+  ArrowDown,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
@@ -41,6 +44,7 @@ import { DeliveryPartnerView } from "@/components/delivery/DeliveryPartnerView";
 import { AdminDashboardView } from "@/components/admin/AdminDashboardView";
 import { AuthModal } from "@/components/auth/AuthModal";
 
+import heroBgImage from "@/assets/animas-hero-bg.png";
 import heroThali from "@/assets/animas-hero-thali.jpg";
 import dalSpecial from "@/assets/animas-dal-special.jpg";
 import rotiImage from "@/assets/animas-roti-tawa.jpg";
@@ -573,164 +577,142 @@ function MainAppContent() {
                 )}
               </header>
 
-              {/* Premium Culinary Hero Section */}
-              <section id="top" className="relative overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#FDFBF7] to-[#F5EFE6] py-12 md:py-20 border-b border-ink/10">
-                {/* Subtle, refined ambient warmth */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                  <div className="absolute -top-32 right-1/4 h-96 w-96 rounded-full bg-saffron/15 blur-[90px]" />
-                  <div className="absolute -bottom-20 left-10 h-80 w-80 rounded-full bg-spice/10 blur-[80px]" />
-                </div>
+              {/* Premium Culinary Hero Section with Background from ChatGPT Reference */}
+              <section
+                id="top"
+                className="relative overflow-hidden min-h-[640px] sm:min-h-[720px] lg:min-h-[820px] flex items-center bg-[#1A140E] border-b border-ink/10"
+                style={{
+                  backgroundImage: `url(${heroBgImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center right",
+                  backgroundRepeat: "no-repeat",
+                }}
+              >
+                {/* Soft dark vignette on left side for 100% crisp typography and button contrast */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent pointer-events-none md:max-w-[70%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
 
-                <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-12">
-                  {/* Left Column: Headline, Story & Direct Actions */}
-                  <div className="md:col-span-6 lg:col-span-6 space-y-6">
-                    {/* Live Kitchen Status Pill */}
-                    <div className="inline-flex items-center gap-2 rounded-full border border-spice/20 bg-white/90 px-3.5 py-1.5 shadow-sm backdrop-blur-md">
-                      <span className="relative flex size-2">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-spice opacity-75" />
-                        <span className="relative inline-flex size-2 rounded-full bg-spice" />
+                <div className="relative mx-auto max-w-6xl w-full px-5 sm:px-8 py-14 sm:py-20 z-10">
+                  <div className="max-w-xl lg:max-w-2xl space-y-6 sm:space-y-7">
+                    {/* Location & Purity Pill Badge */}
+                    <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 shadow-lg backdrop-blur-md">
+                      <MapPin className="size-3.5 text-[#E25C1D] fill-[#E25C1D]" />
+                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                        INDIRANAGAR HUB #01
                       </span>
-                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-spice">
-                        Indiranagar Hub #01 Live
-                      </span>
-                      <span className="text-ink/20 font-mono">|</span>
-                      <span className="font-mono text-[11px] font-semibold text-ink/70">
+                      <span className="text-white/30 font-mono">|</span>
+                      <span className="font-mono text-xs font-medium text-white/90">
                         100% Desi Cow Ghee
                       </span>
                     </div>
 
-                    {/* Headline */}
-                    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-ink">
-                      HOT. FRESH. <br />
-                      <span className="text-spice italic font-serif font-bold">HOMEMADE</span> <span className="text-spice">THALIS.</span>
-                    </h1>
+                    {/* Main Headline matching reference image */}
+                    <div>
+                      <h1 className="font-serif text-4xl sm:text-6xl lg:text-[76px] font-bold leading-[1.08] tracking-tight text-white drop-shadow-md">
+                        Ghar jaisa swaad.
+                      </h1>
+                      <div className="relative inline-block mt-1 sm:mt-2">
+                        <span className="font-serif italic text-4xl sm:text-6xl lg:text-[76px] font-bold text-[#E27D22] drop-shadow-md">
+                          Har din.
+                        </span>
+                        {/* Curved Swoosh Underline SVG */}
+                        <svg
+                          className="absolute -bottom-2.5 sm:-bottom-3.5 left-0 w-full h-3 sm:h-4 text-[#E27D22]"
+                          viewBox="0 0 220 14"
+                          fill="none"
+                          preserveAspectRatio="none"
+                        >
+                          <path
+                            d="M3 11C60 3 160 3 217 11"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
 
                     {/* Subtitle */}
-                    <p className="max-w-[46ch] font-body text-sm sm:text-base text-ink/75 leading-relaxed">
-                      Steel thalis that arrive steaming hot — slow-simmered yellow dal tadka, charred paneer tikka, hand-rolled desi ghee rotis and aromatic jeera rice. Cooked in small brass & iron batches, never frozen.
+                    <p className="font-body text-sm sm:text-base md:text-lg text-white/90 leading-relaxed max-w-lg drop-shadow-sm pt-1">
+                      Desi thalis, made with love and traditional recipes. Freshly cooked, just like home.
                     </p>
 
                     {/* Action CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 sm:pt-3">
                       <Button
-                        className="w-full sm:w-auto rounded-full bg-spice px-7 py-3.5 font-body text-sm font-bold text-cream shadow-lg shadow-spice/25 transition-all hover:-translate-y-0.5 hover:bg-ink hover:shadow-xl h-auto justify-center"
+                        className="rounded-full bg-[#E25C1D] hover:bg-[#c94d14] text-white px-8 py-3.5 sm:py-4 font-body text-sm sm:text-base font-bold shadow-xl shadow-orange-950/40 transition-all hover:scale-105 h-auto justify-center gap-2.5"
                         onClick={() => {
                           const dalThali = menuItems[0];
-                          if (dalThali) setSelectedDishPageId(dalThali.id);
+                          if (dalThali) setThaliModalItem(dalThali);
                         }}
                       >
-                        <span>Customize Your Thali</span>
-                        <ArrowRight className="size-4 ml-2" />
+                        <Utensils className="size-4" />
+                        <span>Order Thali</span>
+                        <ArrowRight className="size-4" />
                       </Button>
 
                       <Button
                         variant="outline"
-                        className="w-full sm:w-auto rounded-full border-ink/20 bg-white/80 px-6 py-3.5 font-body text-sm font-bold text-ink backdrop-blur shadow-sm hover:border-spice hover:bg-white hover:text-spice h-auto justify-center"
-                        onClick={() => setCustomerPage("menu")}
+                        className="rounded-full border border-white/60 bg-black/25 hover:bg-white/15 hover:border-white text-white px-7 py-3.5 sm:py-4 font-body text-sm sm:text-base font-bold backdrop-blur-md transition-all hover:scale-105 h-auto justify-center gap-2.5"
+                        onClick={() => {
+                          const menuEl = document.getElementById("menu-section");
+                          if (menuEl) menuEl.scrollIntoView({ behavior: "smooth" });
+                          else setCustomerPage("menu");
+                        }}
                       >
-                        <span>Explore Menu</span>
-                        <ArrowRight className="size-4 ml-1.5" />
+                        <BookOpen className="size-4" />
+                        <span>View Menu</span>
+                        <ArrowRight className="size-4" />
                       </Button>
                     </div>
 
-                    {/* Trust & Performance Metrics */}
-                    <div className="grid grid-cols-3 gap-2 sm:gap-4 border-t border-ink/10 pt-5 font-mono text-xs">
-                      <div>
-                        <span className="font-display text-lg sm:text-xl font-bold text-ink block">24 Mins</span>
-                        <span className="text-[10px] sm:text-[11px] text-ink/60">Avg Delivery</span>
-                      </div>
-                      <div>
-                        <span className="font-display text-lg sm:text-xl font-bold text-emerald-700 block">4.9 ★</span>
-                        <span className="text-[10px] sm:text-[11px] text-ink/60">14k+ Foodies</span>
-                      </div>
-                      <div>
-                        <span className="font-display text-lg sm:text-xl font-bold text-spice block">100% Fresh</span>
-                        <span className="text-[10px] sm:text-[11px] text-ink/60">No Preservatives</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Mouth-Watering Visual Thali Showcase */}
-                  <div className="md:col-span-6 lg:col-span-6 flex justify-center">
-                    <div className="relative w-full max-w-lg rounded-[36px] bg-white/90 p-3.5 shadow-2xl shadow-ink/10 border border-ink/10 backdrop-blur-md">
-                      {/* Animated Steam */}
-                      <div className="absolute -top-7 left-1/2 flex -translate-x-1/2 gap-2.5 pointer-events-none z-20">
-                        <span className="steam block h-16 w-2 rounded-full bg-white/80 blur-[2px]" />
-                        <span className="steam block h-20 w-3 rounded-full bg-white/80 blur-[2px] [animation-delay:-1.2s]" />
-                        <span className="steam block h-14 w-2.5 rounded-full bg-white/80 blur-[2px] [animation-delay:-2.4s]" />
-                      </div>
-
-                      {/* Main Photo Container */}
-                      <div className="relative overflow-hidden rounded-[28px] aspect-square w-full">
-                        <img
-                          src={heroThali}
-                          alt="Authentic Indian Dal Tadka Thali with Paneer and Roti"
-                          width={1200}
-                          height={1200}
-                          className="size-full object-cover transition-transform duration-700 hover:scale-105"
-                        />
-                        {/* Soft bottom vignette so card text stays crisp */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20 pointer-events-none" />
-
-                        {/* Top Left Floating Tag */}
-                        <div className="absolute top-4 left-4">
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1 font-mono text-[10px] font-bold text-saffron backdrop-blur-md border border-white/10 shadow-md">
-                            <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                            COOKING IN BRASS POTS
-                          </span>
+                    {/* Metrics Bar with Clean Dividers */}
+                    <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 text-white/90 font-mono text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">🛵</span>
+                        <div>
+                          <span className="font-bold text-sm sm:text-base text-white block leading-tight">24 Mins</span>
+                          <span className="text-[10px] sm:text-[11px] text-white/70">Avg Delivery</span>
                         </div>
+                      </div>
 
-                        {/* Top Right Tag */}
-                        <div className="absolute top-4 right-4">
-                          <span className="rounded-full bg-white/90 px-3 py-1 font-mono text-[10px] font-bold text-ink backdrop-blur-md shadow-md">
-                            PURE COW GHEE
-                          </span>
+                      <span className="text-white/30 font-mono text-lg hidden sm:inline">|</span>
+
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">⭐</span>
+                        <div>
+                          <span className="font-bold text-sm sm:text-base text-emerald-400 block leading-tight">4.9 ★</span>
+                          <span className="text-[10px] sm:text-[11px] text-white/70">14K+ Foodies</span>
                         </div>
+                      </div>
 
-                        {/* Clean Integrated Bottom Food Card (No Overflow / No Awkward Hanging) */}
-                        <div
-                          onClick={() => {
-                            const dalThali = menuItems[0];
-                            if (dalThali) setSelectedDishPageId(dalThali.id);
-                          }}
-                          className="absolute bottom-3.5 left-3.5 right-3.5 rounded-2xl border border-white/30 bg-white/95 p-3.5 shadow-xl backdrop-blur-xl flex items-center justify-between gap-3 cursor-pointer hover:bg-white transition-colors"
-                        >
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-1.5 mb-0.5">
-                              <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-spice bg-spice/10 px-2 py-0.5 rounded-md">
-                                TODAY'S BESTSELLER
-                              </span>
-                              <span className="font-mono text-[10px] text-emerald-700 font-bold">
-                                ★ 4.9 (850+)
-                              </span>
-                            </div>
-                            <h3 className="font-display text-base font-bold text-ink leading-tight truncate">
-                              Dal Tadka Deluxe Thali
-                            </h3>
-                            <p className="text-[11px] text-ink/60 truncate">
-                              Yellow Dal Tadka + 2 Desi Ghee Rotis + Jeera Rice
-                            </p>
-                          </div>
+                      <span className="text-white/30 font-mono text-lg hidden sm:inline">|</span>
 
-                          <div className="flex items-center gap-2.5 shrink-0">
-                            <span className="font-mono text-base font-bold text-ink">₹180</span>
-                            <Button
-                              size="sm"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                const dalThali = menuItems[0];
-                                if (dalThali) addToCart(dalThali);
-                              }}
-                              className="rounded-xl bg-spice text-white hover:bg-spice/90 text-xs font-bold px-3.5 h-8 shadow-sm gap-1"
-                            >
-                              <Plus className="size-3.5" />
-                              <span>Add</span>
-                            </Button>
-                          </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">🌱</span>
+                        <div>
+                          <span className="font-bold text-sm sm:text-base text-white block leading-tight">100% Fresh</span>
+                          <span className="text-[10px] sm:text-[11px] text-white/70">No Preservatives</span>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                {/* Mouse Scroll Down Indicator at Bottom Center */}
+                <div
+                  className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/70 hover:text-white transition-colors cursor-pointer z-20 group"
+                  onClick={() => {
+                    const menuEl = document.getElementById("menu-section");
+                    if (menuEl) menuEl.scrollIntoView({ behavior: "smooth" });
+                    else setCustomerPage("menu");
+                  }}
+                  title="Scroll to Menu"
+                >
+                  <div className="w-5 h-8 rounded-full border-2 border-white/60 flex items-start justify-center p-1 group-hover:border-white transition-colors">
+                    <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
+                  </div>
+                  <ArrowDown className="size-3.5 text-white/70 group-hover:text-white animate-pulse" />
                 </div>
               </section>
 

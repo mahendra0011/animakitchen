@@ -1,15 +1,20 @@
-// Vite & TanStack Start Configuration for Anima's Kitchen
-// Includes TanStack devtools, tanstackStart, viteReact, tailwindcss, tsConfigPaths, nitro, and path alias.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import viteReact from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsConfigPaths from "vite-tsconfig-paths";
+import { nitro } from "nitro/vite";
 
 export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-  },
-  nitro: {
-    preset: process.env.NITRO_PRESET || (process.env.RENDER ? "node-server" : undefined),
-  },
+  plugins: [
+    tanstackStart({
+      server: { entry: "server" },
+    }),
+    viteReact(),
+    tailwindcss(),
+    tsConfigPaths({ projects: ["./tsconfig.json"] }),
+    nitro({
+      preset: process.env.NITRO_PRESET || (process.env.RENDER ? "node-server" : "node-server"),
+    }),
+  ],
 });
-
